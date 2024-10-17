@@ -1,7 +1,8 @@
 #!/bin/bash
-set -e
+set -euo pipefail
 util/docker_build.sh handwired/veesplit56:default
-target_dir=/mnt/c/Users/kosciusz/Documents/Private/klawiatura\ veesplit56/firmware
+
+target_dir="/mnt/c/Users/kkosc/Documents/Private/klawiatura veesplit56/firmware"
 file_name=$(echo *.uf2 | head -1)
 modified=$(date --date=@$(stat -c '%Y' ${file_name}) +%Y-%m-%d)
 target_file=${file_name%.uf2}-${modified}.uf2
